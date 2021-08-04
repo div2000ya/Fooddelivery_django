@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  height:300px;
+  border-radius: 20%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<body>
+<div class="w3-row w3-padding-64" id="menu">
+  <div class="imgcontainer">
+    <h1 class="w3-center">Our Menu</h1><br>
+  </div>
+  <div class="row">
+   {% for list in data %}
+    <div class="w3-col l6 w3-padding-large">
+
+        <div class="thumbnail">
+          <img src="{{ list.f_image.url }}"  width="250" height="250">
+          <div class="caption">
+            <h4 style="text-align: center;">{{ list.f_name }}</h4>
+            <h4 style="text-align: center;">{{ list.f_price }}</h4>
+              <button class="float-right btn btn-light border btn-sm"><a href="/cart/{{list.id}}">Add To Cart</a></button>  
+            </form>
+            </div>
+      </div>
+     
+    </div>
+    {% endfor %}
+  </div>
+  <hr>
+</body>
+  {% endblock %}

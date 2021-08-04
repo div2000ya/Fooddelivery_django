@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+  <h2>List of Restaurants</h2>
+  <div class="row">
+    {% for list in data %}
+    <div class="col-md-4">
+      <div class="thumbnail">
+          <img src= "{% static '11.jfif' %}" alt="Lights" style="width:100%">
+          <div class="caption">
+                <a href="/menu/?id={{ list.id }}"><h4 style="text-align: center;">{{ list.r_name }} </h4> </a>
+                <h4 style="text-align: center;">{{list.r_contact}}</h4>
+          </div>
+      </div>
+    </div>
+    {% endfor %}
+   </div>
+    
+{% endblock %}
+
+
